@@ -1,5 +1,6 @@
 package com.example.zuduiunittest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.zuduiunittest.Constants.Extra;
@@ -95,21 +96,27 @@ public class MainActivity extends Activity {
 
 	private void startPhotosPagerActivity(int position) {
 		List<String> photoUrlList = myPhotosAdapter.getPhotoUrlList();
-		String[] photoUrls = (String[]) photoUrlList.toArray(new String[photoUrlList.size()]); 
+		// 为了使ridView中最后一张按钮图不在ViewPager中显示出来而做的一些工作
+		List<String> photoUrlListWithoutBtn = new ArrayList<String>();
+		photoUrlListWithoutBtn.addAll(photoUrlList);
+		photoUrlListWithoutBtn.remove(photoUrlListWithoutBtn.size() - 1);
+		String[] photoUrls = (String[]) photoUrlListWithoutBtn.toArray(new String[photoUrlListWithoutBtn.size()]); 
+		
+		// 点击看大图
 		Intent intent = new Intent(this, ImagePagerActivity.class);
 		intent.putExtra(Extra.IMAGES, photoUrls);
 		intent.putExtra(Extra.IMAGE_POSITION, position);
 		startActivity(intent);
 	}
 	
-	// 禁止GridView滑动
+	// 禁止GridView滑动，返回true消费此次事件，使得事件不在继续分发，即可在触发滑动之前中止滑动
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-	if(ev.getAction() == MotionEvent.ACTION_MOVE)
-		return true;
-	return super.dispatchTouchEvent(ev);
+		if(ev.getAction() == MotionEvent.ACTION_MOVE)
+			return true;
+		return super.dispatchTouchEvent(ev);
 	}
-
+	
 	@Override
 	protected void onResume() {
 		checkPhotoListSize();
