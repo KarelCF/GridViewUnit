@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    
+    <color name="text_photos_light">#ffffffff</color>
+	<color name="background_photos_dark">#ff000000</color>
+	
+</resources>

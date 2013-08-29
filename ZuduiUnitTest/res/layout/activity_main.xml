@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".MainActivity" 
+    >
+    
+    <RelativeLayout 
+        android:id="@+id/photo_area_text_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/layout_photo_area"
+	    android:background="@color/background_photos_dark"
+	    android:gravity="center"
+	    >
+	    
+        <ImageView 
+            android:id="@+id/camera"
+            android:layout_width="25dp"
+	    	android:layout_height="25dp"
+	    	android:src="@drawable/pic_camera"
+            />
+        
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@id/camera"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginTop="3dp"
+	        android:textColor="@color/text_photos_light"
+	        android:textSize="15sp"
+	        android:text="@string/photo_area_text"
+	        />
+	    
+	</RelativeLayout>    
+	
+    <RelativeLayout 
+        android:id="@+id/photo_area_grid_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/layout_photo_area"
+	    android:gravity="center_vertical"
+	    android:background="@color/background_photos_dark"
+	    android:visibility="gone"
+	    >
+	    
+	    <GridView
+	        android:id="@+id/myspace_gridview_photos"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="@dimen/gridview_photo_margin_top"
+	        android:layout_marginRight="@dimen/gridview_photo_margin_right"
+	        android:layout_marginBottom="@dimen/gridview_photo_margin_bottom"
+	        android:layout_marginLeft="@dimen/gridview_photo_margin_left"
+	        android:gravity="center"
+	        android:horizontalSpacing="5dp"
+	        android:verticalSpacing="5dp" 
+	        android:numColumns="4"
+	        android:stretchMode="columnWidth"
+	        />
+	    
+	</RelativeLayout>
+	
+</LinearLayout>
