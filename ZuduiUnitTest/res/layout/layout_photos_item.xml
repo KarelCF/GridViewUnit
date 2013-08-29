@@ -8,7 +8,9 @@
         android:id="@+id/myspace_activity_imageview_photo"
         android:layout_width="@dimen/img_photo"
         android:layout_height="@dimen/img_photo"
+        android:adjustViewBounds="true"
         android:layout_gravity="center"
+        android:scaleType="centerCrop"
         />
     
 </RelativeLayout>
